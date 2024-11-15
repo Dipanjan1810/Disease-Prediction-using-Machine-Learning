@@ -29,7 +29,7 @@ def diabetes():
             float(request.form['age'])
         ]
         prediction = diabetes_model.predict([user_input])
-        result = 'Diabetic' if prediction[0] == 1 else 'The Person is not Diabetic'
+        result = 'The Person is Diabetic' if prediction[0] == 1 else 'The Person is not Diabetic'
     return render_template('diabetes.html', result=result)
 
 @app.route('/heart', methods=['GET', 'POST'])
@@ -54,7 +54,7 @@ def parkinsons():
             'rpde', 'dfa', 'spread1', 'spread2', 'd2', 'ppe'
         ]]
         prediction = parkinsons_model.predict([user_input])
-        result = "Parkinson's Detected" if prediction[0] == 1 else "The person does not have Parkinson's Disease"
+        result = "Parkinson's Disease Detected" if prediction[0] == 1 else "The person does not have Parkinson's Disease"
     return render_template('parkinsons.html', result=result)
 
 if __name__ == '__main__':
